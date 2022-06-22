@@ -1,0 +1,6 @@
+{
+   "env": {
+    "apiBaseUrl": "http://api.rangpur.onss/",
+    "domain": "http://localhost:3000/"
+  }
+}

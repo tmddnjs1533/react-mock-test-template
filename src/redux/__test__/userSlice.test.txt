@@ -1,0 +1,31 @@
+import reducer, { login, logout } from "../userSlice";
+
+const tempUser = {
+  name: "김승원",
+  email: "sw91@onss.co.kr",
+  userId: "qwer-bfda-qdsvnbea",
+  profileUrl: "",
+  position: "과장",
+  department: "S/W 개발부",
+};
+
+test("user store 초기값", () => {
+  expect(reducer(undefined, {})).toEqual({
+    name: "",
+    email: "",
+    userId: "",
+  });
+});
+
+test("로그인하면 유저 정보가 잘 저장되어야 함", () => {
+  const previousState = {};
+  expect(reducer(previousState, login(tempUser))).toEqual(tempUser);
+});
+
+test("로그아웃하면 유저정보가 잘 없어져야 함", () => {
+  expect(reducer(tempUser, logout())).toEqual({
+    name: "",
+    email: "",
+    userId: "",
+  });
+});
